@@ -1,0 +1,5 @@
+
+### 'OSGi & nondeterminism': OBR (RFC-0112) - sample repos:
+1. In Apache Aries sources - \aries\application\application-itests\src\test\resources\obr\
+2. http://sigil.codecauldron.org/spring-external.obrs
+3. http://www.knopflerfish.org/repo/bindex.xml

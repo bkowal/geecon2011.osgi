@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd   http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd      http://activemq.apache.org/camel/schema/spring http://activemq.apache.org/camel/schema/spring/camel-spring.xsd   http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
+	<broker xmlns="http://activemq.apache.org/schema/core"
+		brokerName="default" dataDirectory="activemq/default"
+		destroyApplicationContextOnShutdown="true" useShutdownHook="false">
+
+		<managementContext>
+			<managementContext createConnector="false" />
+		</managementContext>
+
+		<networkConnectors>
+		</networkConnectors>
+		<persistenceAdapter>
+			<kahaDB directory="activemq/default" />
+		</persistenceAdapter>
+
+		<systemUsage>
+			<systemUsage>
+				<memoryUsage>
+					<memoryUsage limit="20 mb" />
+				</memoryUsage>
+				<storeUsage>
+					<storeUsage limit="1 gb" name="foo" />
+				</storeUsage>
+				<tempUsage>
+					<tempUsage limit="100 mb" />
+				</tempUsage>
+			</systemUsage>
+		</systemUsage>
+		
+		<transportConnectors>
+			<transportConnector name="openwire" uri="tcp://0.0.0.0:61619" />
+		</transportConnectors>
+		
+	</broker>
+</beans>

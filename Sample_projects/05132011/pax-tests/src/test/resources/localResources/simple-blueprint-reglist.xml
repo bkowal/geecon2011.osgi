@@ -1,0 +1,16 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0">
+
+
+	<service id="fooService" ref="fooImpl" auto-export="all-classes">
+		<registration-listener registration-method="reg"
+			unregistration-method="unreg">
+			<bean class="com.acme.FooListener" />
+		</registration-listener>
+	</service>
+
+	<bean id="fooImpl" class="com.acme.Foo" activation="eager">
+	</bean>
+
+
+</blueprint>

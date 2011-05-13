@@ -1,0 +1,8 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header />
+	<soap:Body>
+		<ns1:sendIt xmlns:ns1="http://bartek.com/">
+			<arg0 xmlns="http://bartek.com/">Hello</arg0>
+		</ns1:sendIt>
+	</soap:Body>
+</soap:Envelope>
